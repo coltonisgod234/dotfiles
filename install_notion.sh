@@ -80,7 +80,7 @@ function notion_upgrade () {
 function logoff_prompt () {
 	echo "Done! You must log off to apply the changes"
 	read -n 1 -s -r -p "Press any key to log off..."
-	#do_logout
+	do_logout
 }
 
 if test "$1" == "install" ; then
