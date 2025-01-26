@@ -1,5 +1,5 @@
 echo "This script was meant for Arch Linux"
-echo "you will need to manually install these "
+echo "you will need to manually install these on other distros"
 echo "ENSURE YOU ARE RUNNING THIS SCRIPT AS ROOT"
 read -n 1 -s -r -p "Press any key to install..."
 
