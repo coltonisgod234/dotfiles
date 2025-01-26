@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Configure monitors
+xrandr --output DP-0 --mode 2560x1440 --rate 165 --primary
+xrandr --output HDMI-0 --mode 1920x1080 --rate 75 --left-of DP-0 --rotate left
+
+feh --bg-fill ~/wallpaper.jpg &
+
+exec notion
