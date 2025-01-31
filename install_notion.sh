@@ -12,7 +12,7 @@ function do_logout () {
 	else
 		echo "Unable to determine the active session ID!"
 		echo "LAST RESORT: Attempting to kill Xorg server..."
-		echo "IF YOUR WINDOW MANAGER FREEZES, GO TO A SEPERATE TTY AND RUN A REBOOT"
+		echo "IF YOUR WINDOW MANAGER FREEZES, GO TO A DIFFRENT TTY AND REBOOT"
 		killall Xorg -9
 	fi
 	exit 0
@@ -24,15 +24,26 @@ function requirement () {
 		return 0
 	else
 		echo "Required package $1 isn't installed!"
-		read -n 1 -s -r -p "Press any key to install it."
+		#read -n 1 -s -r -p "Press any key to install it."
 		sudo pacman -S $1 --no-confirm
 		return 0
 	fi
 }
 
+function AURrequirement () {
+	if yay -Q $1 ; then
+		echo "OK"
+		return 0
+	else
+		echo "Required package $1(AUR) isn't installed!"
+		yay -S $1 --no-confirm
+		return 0
+	fi
+}
+
 function installed_check () {
-	if test -d ~/.notion; then
-		echo "The dotfiles are already installed"
+	if test -d "$2"; then
+		echo "The $1 dotfiles are already installed"
 		echo "Did you mean to update them?"
 		echo "Run \`install.sh upgrade\` if so"
 		exit 1
@@ -43,6 +54,7 @@ function installed_check () {
 function notion_install () {
 	echo "Checking requirements..."
 	requirement "notion"
+	requirement
 
 	echo "Creating config directory..."
 	mkdir -p ~/.notion/
@@ -52,6 +64,9 @@ function notion_install () {
 
 	echo "Creating notion.desktop xsession..."
 	cp notion.desktop /usr/share/xsessions/notion.desktop
+
+	echo "Copying this script..."
+	cp install_notion.sh ~/.notion
 	echo "(probably) Success!"
 }
 
@@ -73,7 +88,9 @@ function notion_upgrade () {
 	echo "Upgrading Notion dotfiles..."
 	echo "Pulling git repo"
 	git pull
+	echo "Removing dotfiles..."
 	notion_uninstall
+	echo "Reinstalling dotfiles..."
 	notion_install
 }
 
@@ -84,6 +101,7 @@ function logoff_prompt () {
 }
 
 if test "$1" == "install" ; then
+	installed_check "Notion" "~/.notion/"
 	notion_install
 	logoff_prompt
 elif test "$1" == "uninstall" ; then
