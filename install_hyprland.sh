@@ -7,7 +7,7 @@ echo "This script assumes you use yay and pacman."
 set -x
 sudo -v
 
-sudo pacman -S --needed python3 hyprland waybar imagemagick strawberry flatpak firefox --noconfirm
+sudo pacman -S --needed python3 hyprland waybar imagemagick strawberry flatpak firefox curl zsh --noconfirm
 yay -S --needed python-pywal16 visual-studio-code-bin opentabletdriver vesktop themix-gui themix-plugin-base16-git themix-theme-oomox-git --noconfirm
 
 flatpak install flathub --system org.kde.krita org.kde.kdenlive -y
@@ -43,6 +43,16 @@ oomox-cli \
   ~/.cache/wal/colors-oomox \
   --output wal_theme \
   --target-dir ~/.themes
+
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Change shell to zsh
+chsh -s /usr/bin/zsh
+
+# Copy ZSH files
+cp hyprland/zsh/zshrc $HOME/.zshrc -fv
+cp hyprland/zsh/custom $HOME/.oh-my-zsh -rfv
 
 sudo -K
 
