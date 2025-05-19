@@ -1,4 +1,5 @@
-#!/bin/zsh
+#!/usr/bin/zsh
+set -x
 
 #wallpaper_folder="$HOME/"
 wallpaper_folder="$HOME/.config/colton-dfiles/wallpapers"
@@ -35,12 +36,14 @@ function main_wall () {
 	$HOME/.config/hypr/scripts/reload_dunst_cols.sh  # Reload dunst
 	pkill -USR1 -x kitty  # Reload kitty
 
+	echo "This command will fail if you're installing the dotfiles"
 	hyprctl hyprpaper reload ,"$random_image"
 }
 
+# Removed for dotfile install
 # Wait until Hyprpaper is fully up
-while ! pidof hyprpaper; do
-    sleep 0.1
-done
+#while ! pidof hyprpaper; do
+#    sleep 0.1
+#done
 main_wall
 
