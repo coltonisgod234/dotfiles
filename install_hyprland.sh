@@ -20,19 +20,19 @@ flatpak install flathub --system org.kde.Platform org.kde.krita org.kde.kdenlive
 
 # Copy hyprland
 mkdir -p $HOME/.config/hypr
-cp hyprland/hypr $HOME/.config/ -r
+cp hyprland/hypr $HOME/.config/ -rfv
 
 # Copy wallpapers
 mkdir -p $HOME/.config/colton-dfiles
-cp wallpapers $HOME/.config/colton-dfiles -r
+cp wallpapers $HOME/.config/colton-dfiles -rfv
 
 # Copy waybar
 mkdir -p $HOME/.config/waybar
-cp hyprland/waybar $HOME/.config/waybar -r
+cp hyprland/waybar $HOME/.config/waybar -rfv
 
 # Copy wal templates
 mkdir -p $HOME/.config/wal
-cp hyprland/wal/templates $HOME/.config/wal -r
+cp hyprland/wal/templates $HOME/.config/wal -rfv
 
 # Generate pywal colours
 hyprland/hypr/scripts/cycle_wallpaper.sh
