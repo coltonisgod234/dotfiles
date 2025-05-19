@@ -23,9 +23,10 @@ flatpak install flathub --system org.kde.krita org.kde.kdenlive -y
 mkdir -p $HOME/.config/hypr
 cp hyprland/hypr $HOME/.config/ -rfv
 
-# Copy wallpapers
+# Copy wallpapers & scripts
 mkdir -p $HOME/.config/colton-dfiles
 cp wallpapers $HOME/.config/colton-dfiles -rfv
+cp upgrade_system.sh $HOME/.config/colton-dfiles -rfv
 
 # Copy waybar
 mkdir -p $HOME/.config/waybar
