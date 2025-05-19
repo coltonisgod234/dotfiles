@@ -38,6 +38,7 @@ function copy_hyprland () {
   # Copy wallpapers
   mkdir -p $HOME/.config/colton-dfiles
   cp wallpapers $HOME/.config/colton-dfiles -rfv
+  cp upgrade_system.sh $HOME/.config/colton-dfiles -rfv
 
   # Copy waybar
   mkdir -p $HOME/.config/waybar
