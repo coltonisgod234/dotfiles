@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Notion
-Comment=This session logs you into Notion
-Exec=~/.notion/start_notion
-Icon=
-Type=XSession

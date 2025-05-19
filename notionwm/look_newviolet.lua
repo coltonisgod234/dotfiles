@@ -72,7 +72,7 @@ de.defstyle("input-menu", {
 
 de.defstyle("frame", {
     background_colour = "#000000",
-    transparent_background = false,
+    transparent_background = true,
     shadow_pixels = 1,
     highlight_pixels = 1,
     padding_pixels = 0,

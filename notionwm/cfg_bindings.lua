@@ -167,10 +167,10 @@ defbindings("WMPlex", {
 
 defbindings("WMPlex.toplevel", {
     bdoc("Toggle tag of current object.", "tag"),
-    kpress(META.."W", "WRegion.set_tagged(_sub, 'toggle')", "_sub:non-nil"),
+--    kpress(META.."W", "WRegion.set_tagged(_sub, 'toggle')", "_sub:non-nil"),
 
     bdoc("Clear all tags.", "-tags"),
-    kpress(ALTMETA.."W", "ioncore.clear_tags()"),
+--    kpress(ALTMETA.."W", "ioncore.clear_tags()"),
 
     --[[ UNUSED
     bdoc("Lock screen", "lock"),

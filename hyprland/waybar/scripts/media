@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+STATUS=$(playerctl status)
+
+# Otherwise
+TITLE=$(playerctl metadata title 2>/dev/null)
+ARTIST=$(playerctl metadata artist 2>/dev/null)
+ALBUM=$(playerctl metadata album 2>/dev/null)
+
+printf "$STATUS $TITLE - $ARTIST $ALBUM\n"

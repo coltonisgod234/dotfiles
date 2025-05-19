@@ -13,12 +13,16 @@ defbindings("WTiling", {
     bdoc("Destroy current frame.", "unsplit"),
     kpress(ALTMETA.."X", "WTiling.unsplit_at(_, _sub)"),
 
+    kpress(META.."W", "WTiling.transpose_at(_)"),
+    kpress(ALTMETA.."W", "WTiling.flip_at(_)"),
+    --[[
     bdoc("Go to frame below current frame.", "vframe"),
     kpress(META.."W", "ioncore.goto_next(_sub, 'down', {no_ascend=_})"),
     bdoc("Go to frame above current frame.", "^frame"),
     kpress(ALTMETA.."W", "ioncore.goto_next(_sub, 'up', {no_ascend=_})"),
     mclick(META.."Shift+Button4", "ioncore.goto_next(_sub, 'up', {no_ascend=_})"),
     mclick(META.."Shift+Button5", "ioncore.goto_next(_sub, 'down', {no_ascend=_})"),
+    --]]
 })
 
 -- Frame bindings.

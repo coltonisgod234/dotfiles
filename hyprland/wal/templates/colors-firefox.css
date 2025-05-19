@@ -1,0 +1,27 @@
+:root {{
+    --bg: {color0};
+    --fg: {color15};
+    --menu-bg: {color0};
+    --menu-fg: {color15};
+    --sel-bg: {color1};
+    --sel-fg: {color0};
+    --txt-bg: {color0};
+    --txt-fg: {color15};
+    --btn-bg: {color2};
+    --btn-fg: {color15};
+    --hdr-btn-bg: {color3};
+    --hdr-btn-fg: {color15};
+}}
+/*
+
+body, html, nav, ytd-app {{
+    background-color: var(--bg) !important;
+    color: var(--fg) !important;
+    text: var(--btn-fg) !important;
+}}
+
+::selection {{
+    background-color: var(--sel-bg) !important;
+    color: var(--sel-fg) !important;
+}}
+*/

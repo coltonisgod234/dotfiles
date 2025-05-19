@@ -118,7 +118,7 @@ ioncore.set{
 -- something, comment out this line, and uncomment the lines corresponding
 -- to the modules or configuration files that you want, below.
 -- Note that mod_dock and mod_statusbar are mutually exclusive.
-dopath("cfg_defaults")
+--dopath("cfg_defaults")
 
 -- Load some kludges to make apps behave better.
 dopath("cfg_kludges")
@@ -132,14 +132,14 @@ dopath("mod_menu")
 dopath("mod_tiling")
 --dopath("mod_statusbar")
 --dopath("mod_dock")
---dopath("mod_sp")
---dopath("mod_notionflux")
---dopath("mod_xrandr")
+dopath("mod_sp")
+dopath("mod_notionflux")
+dopath("mod_xrandr")
 
---dopath("net_client_list")
+dopath("net_client_list")
 --
 -- loads cfg_bindings
---dopath("cfg_notioncore")
+dopath("cfg_notioncore")
 
 --
 -- Common customisations

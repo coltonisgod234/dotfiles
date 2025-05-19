@@ -65,6 +65,8 @@ cmd "sudo pacman -Syy --noconfirm"
 log step "Running full system upgrade..."
 cmd "sudo pacman -Syu --noconfirm"
 
+
+
 # This just prevents some stupid conflics
 log step "Removing debug symbols..."
 StripDebug
@@ -76,10 +78,14 @@ cmd "yay -Scc --noconfirm"
 log step "Starting AUR upgrade..."
 cmd "yay -Syu --noconfirm"
 
+
+
 log step "Starting flatpak upgrade..."
 cmd "flatpak upgrade -y"
 
-log phase "Cleanup and finishing touches"
+
+
+log phase "Updating resources..."
 
 log step "Regenerate initcpio..."
 cmd "sudo mkinitcpio -P"
@@ -96,6 +102,13 @@ cmd "sudo systemctl daemon-reload"
 
 log step "Regenerating locale..."
 cmd "sudo locale-gen"
+
+log step "Updating Xresources"
+cmd "xrdb -merge ~/.Xresources"
+
+log step "Regenerate bootloader config"
+cmd "sudo bootctl install"
+cmd "sudo bootctl update"
 
 log phase "DONE!"
 droproot

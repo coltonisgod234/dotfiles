@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Start with the current month and year
+current_month=$(date +%m)
+current_year=$(date +%Y)
+
+function goto_time() {
+	read -N 4 -p "Enter year: " current_year
+}
+
+function next_12_months() {
+  current_month=$(( (10#$current_month + 12) % 12 ))
+  current_year=$(( current_year + ( (10#$current_month + 12) / 12 ) ))
+
+  if [[ "$current_month" -eq 0 ]]; then
+    current_month=12
+    current_year=$((current_year - 1))
+  fi
+}
+
+while true; do
+  read -n 1 -p "[q] Quit [M] Next 12 months [G] Go to year" action
+  printf "\n$action"
+
+  case "$action" in
+    Qq)
+      printf "Quitting..."
+      exit 0
+      ;;
+    Mm)
+      printf "Next 12 months..."
+      next_12_months
+      ;;
+    Gg)
+      printf "Going to year..."
+      goto_time
+      ;;
+  esac
+done
