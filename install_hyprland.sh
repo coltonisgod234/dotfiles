@@ -10,7 +10,7 @@ sudo -v
 sudo pacman -S --needed python3 hyprland waybar imagemagick strawberry flatpak firefox --noconfirm
 yay -S --needed python-pywal16 visual-studio-code-bin opentabletdriver vesktop themix-gui themix-plugin-base16-git themix-theme-oomox-git --noconfirm
 
-flatpak install flathub --system org.kde.Platform org.kde.krita org.kde.kdenlive -y
+flatpak install flathub --system org.kde.krita org.kde.kdenlive -y
 
 # NOT DONE
 #read inpt -p "Do you want my [p]rograms or [j]ust the configs?" -n 1
