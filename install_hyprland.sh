@@ -1,15 +1,16 @@
 #!/bin/bash
 echo "This will install my dotfiles to your system."
 echo "You must only confirm your password once with this script."
-echo "This requires root privledges to install packages. You will be prompted to do so."
+echo "This requires root privledges to install packages. You will not be prompted for packages. This script is unnattended."
 echo "This script assumes you use yay and pacman."
 
 set -x
 sudo -v
 
-sudo pacman -S --needed python3 hyprland waybar imagemagick strawberry flatpak firefox
-yay -S --needed python-pywal16 visual-studio-code-bin opentabletdriver vesktop themix-gui themix-plugin-base16-git themix-theme-oomox-git
-flatpak install flathub --system org.kde.Platform org.kde.krita org.kde.kdenlive org.freedesktop.Platform.GL.default
+sudo pacman -S --needed python3 hyprland waybar imagemagick strawberry flatpak firefox --noconfirm
+yay -S --needed python-pywal16 visual-studio-code-bin opentabletdriver vesktop themix-gui themix-plugin-base16-git themix-theme-oomox-git --noconfirm
+
+flatpak install flathub --system org.kde.Platform org.kde.krita org.kde.kdenlive -y
 
 # NOT DONE
 #read inpt -p "Do you want my [p]rograms or [j]ust the configs?" -n 1
