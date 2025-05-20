@@ -14,6 +14,12 @@ function install_base_pkg () {
   yay -S --needed python-pywal16 opentabletdriver vesktop themix-gui themix-plugin-base16-git themix-theme-oomox-git --noconfirm
 }
 
+function install_apps () {
+  sudo pacman -S --needed pcmanfm strawberry firefox flatpak --noconfirm
+  flatpak install flathub --system org.kde.krita org.kde.kdenlive -y
+  yay -S visual-studio-code-bin --noconfirm
+}
+
 function prompt_apps () {
   set +x
 
@@ -22,12 +28,7 @@ function prompt_apps () {
 
   set -x
 
-  if test "$do_you_want_the_apps_bitch" = "a"
-  then
-    sudo pacman -S --needed pcmanfm strawberry firefox flatpak --noconfirm
-    flatpak install flathub --system org.kde.krita org.kde.kdenlive -y
-    yay -S visual-studio-code-bin --noconfirm
-  fi
+  if test "$do_you_want_the_apps_bitch" = "a"; then install_apps; fi
 }
 
 function copy_hyprland () {
@@ -68,7 +69,7 @@ function shell_omz () {
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
   # Change shell to zsh
-  sudo chsh -s "$(which zsh)" $USER
+  sudo chsh -s "$(which zsh)" "$USER"
 
   # Copy ZSH files
   cp hyprland/zsh/zshrc $HOME/.zshrc -fv
@@ -78,7 +79,7 @@ function shell_omz () {
 function stock_zsh () {
     sudo pacman -S --needed --noconfirm zsh
     # Change shell to zsh
-    sudo chsh -s "$(which zsh)"$USER
+    sudo chsh -s "$(which zsh)" "$USER"
 }
 
 function change_shell () {
@@ -133,7 +134,7 @@ function prompt_fastfetch () {
   if test "$which_flag_do_i_fucking_use" = "a"; then aroace_arch_logo_pride; fi
   if test "$which_flag_do_i_fucking_use" = "d"; then arch_logo_other_pride; fi
   if test "$which_flag_do_i_fucking_use" = "r"; then arch_logo_normal; fi
-  if test "$which_flag_do_i_fucking_use" = "b"; then arch_logo_normal; fi
+  if test "$which_flag_do_i_fucking_use" = "b"; then blahaj_aroace_pride; fi
   if test "$which_flag_do_i_fucking_use" = "o"; then blahaj_other_pride; fi
   cp hyprland/fastfetch/config.jsonc $HOME/.config/fastfetch -fv
 }
